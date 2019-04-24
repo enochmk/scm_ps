@@ -1,0 +1,29 @@
+.star-rate .fas,
+.star-rate .far {
+	font-size: 25px;
+}
+
+.at-gray-bg {
+	background-color: #dddddd !important;
+	color: #333 !important;
+}
+.at-gray-bg .nav-link {
+	color: #333 !important;
+}
+
+.at-white-bg {
+	background-color: #fff !important;
+	color: #333 !important;
+}
+
+.form-control {
+	color: #333 !important;
+}
+
+.focused .form-control {
+	border-color: rgba(117, 11, 11, 0.25) !important;
+}
+
+#audits_table tr {
+	cursor: pointer;
+}
