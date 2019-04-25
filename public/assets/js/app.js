@@ -352,7 +352,7 @@ $(document).ready(() => {
 			data: data,
 
 			success: function(response) {
-				console.log(response);
+				console.log(JSON.parse(response));
 			},
 
 			error: function() {
