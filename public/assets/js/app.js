@@ -1,4 +1,5 @@
 class UI {
+	// Display audit on the table
 	static displayAudits(audits) {
 		let count = 1;
 
@@ -7,7 +8,39 @@ class UI {
 			count++;
 		});
 
-		$('.table').DataTable();
+		$('.table').DataTable({
+			dom: 'Bfrtip',
+			buttons: [
+				{
+					extend: 'excelHtml5',
+					autoFilter: true,
+					sheetName: 'Exported data'
+				}
+			]
+		});
+	}
+
+	static displayMonths(months) {
+		let count = 1;
+
+		months.forEach(month => {
+			console.log(month);
+			UI.addMonthToReport(month);
+			count++;
+		});
+	}
+
+	static addMonthToReport(month) {
+		const selects = document.querySelector('#input_months');
+		const option = document.createElement('option');
+
+		const val = document.createAttribute('value');
+		val.attr = month;
+		option.setAttributeNode(val);
+
+		option.innerHTML = month;
+
+		selects.appendChild(option);
 	}
 
 	static displayRating(ratings) {
@@ -58,7 +91,6 @@ class UI {
 }
 
 function view_audit(id) {
-	console.log(`Viewing audit: ${id}`);
 	$.ajax({
 		type: 'POST',
 		url: '../backend/api/audits/getAuditById.php',
@@ -74,7 +106,6 @@ function view_audit(id) {
 			console.log('500 Error');
 		}
 	});
-
 	$('#viewModal').modal('show');
 }
 
@@ -95,6 +126,7 @@ class Audit {
 	}
 }
 
+// Instantiate ratings
 function instantiateRatings() {
 	$('#input_report_rating').stars({
 		stars: 5,
@@ -217,6 +249,7 @@ const rating = {
 	}
 };
 
+// Hide the audits that doesn't depend on selected category of procurement
 $('#input_category').on('change', function() {
 	let category = $(this)
 		.find(':selected')
@@ -238,17 +271,16 @@ $('#input_category').on('change', function() {
 	}
 });
 
+// When document finishes loading...
 $(document).ready(() => {
 	instantiateRatings();
 	rating.hide();
 
 	if ($('#audits_card')[0] != null) {
 		Audit.getAudits();
-		$('.audit_row').on('click', function() {
-			console.log('working...');
-		});
 	}
 
+	// Send data to backend
 	$('#addAudit').on('submit', e => {
 		e.preventDefault();
 
@@ -297,6 +329,32 @@ $(document).ready(() => {
 					});
 				}
 			},
+			error: function() {
+				console.log('500 Error');
+			}
+		});
+	});
+
+	// // add bootstrap btn type to the dataTable Button
+	// const dtBtn = document.querySelector('.buttons-excel');
+	// const btnClass = document.createAttribute('class');
+	// btnClass.value = 'btn btn-success';
+	// dtBtn.setAttributeNode(btnClass);
+
+	$('#pull_reports').submit(function(e) {
+		e.preventDefault();
+		const data = $('#pull_reports').serialize();
+		console.log(data);
+
+		$.ajax({
+			type: 'POST',
+			url: '../backend/api/audits/pullReports.php',
+			data: data,
+
+			success: function(response) {
+				console.log(response);
+			},
+
 			error: function() {
 				console.log('500 Error');
 			}

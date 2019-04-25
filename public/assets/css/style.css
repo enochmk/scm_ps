@@ -27,3 +27,13 @@
 #audits_table tr {
 	cursor: pointer;
 }
+
+.table-responsiveness {
+	overflow: auto;
+	height: 100%;
+}
+
+.table {
+	overflow: auto;
+	height: 100%;
+}

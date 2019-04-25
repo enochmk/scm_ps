@@ -20,7 +20,47 @@ require_once './includes/sidenav.php';?>
           <div class="col-lg-7 col-md-10">
             <h1 class="display-2 text-white">Audits Reports</h1>
 						<p class="text-white mt-0 mb-5">You can download report on previous audits that were performed here. </p>
-						<a href="#" class="btn btn-success">Download Report</a>
+						<a href="#" id="reportBtn" class="btn btn-success" data-toggle="modal" data-target="#report_modal">Download Report</a>
+
+							 <!-- The Modal -->
+					<div class="modal" id="report_modal" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+
+								<!-- Modal Header -->
+								<div class="modal-header text-center">
+									<h4 class="modal-title">Report</h4>
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+
+								<form id="pull_reports" method="POST">
+									<!-- Modal body -->
+									<div class="modal-body">
+											<!-- <select name="input_months" id="input_months" class="form-control">
+											</select> -->
+											<div class="row">
+												<div class="col">
+												<label for="from_date">From Date</label>
+													<input type="date" class="form-control" id="form_date" name="form_date">
+												</div>
+												<div class="col">
+												<label for="to_date">To Date</label>
+													<input type="date" class="form-control" id="to_date" name="to_date">
+												</div>
+											</div>
+									</div>
+
+									<hr class="my-4">
+
+									<!-- Modal footer -->
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-success">Pull</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
           </div>
         </div>
       </div>
@@ -30,7 +70,7 @@ require_once './includes/sidenav.php';?>
   <!-- page content -->
 	<div class="container-fluid mt--7">
 		<div class="row justify-content-center">
-			<div class="col-xl-9 order-xl-1">
+			<div class="col-xl-8 order-xl-1 mt-2">
 				<div class="card bg-secondary shadow">
 					<div class="card-header at-gray-bg border-0">
 						<div class="row align-items-center">

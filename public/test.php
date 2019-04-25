@@ -55,7 +55,10 @@ $createAudit = array(
 
 // var_dump(Utils::get('param_vendors'));
 
-$allaudits = $audit->getAuditById(8);
+// $allaudits = $audit->getAuditById(8);
+
+$allaudits = $audit->getDates();
+echo date_format('april', "m");
 
 echo "<pre>";
 var_dump($allaudits);

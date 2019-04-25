@@ -16,6 +16,8 @@
   <link href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="./assets/css/argon.css?v=1.0.0" rel="stylesheet">
+  <!-- <link type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link type="text/css" href="https: //cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css" rel="stylesheet"> -->
   <link type="text/css" href="./assets/css/datatables.min.css" rel="stylesheet">
   <link type="text/css" href="./assets/css/style.css" rel="stylesheet">
 </head>
