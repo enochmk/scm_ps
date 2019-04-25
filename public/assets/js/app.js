@@ -128,6 +128,7 @@ class Audit {
 
 // Instantiate ratings
 function instantiateRatings() {
+	$('#quality_report_rating').val('-');
 	$('#input_report_rating').stars({
 		stars: 5,
 		value: 0,
@@ -136,6 +137,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#quality_installation_rating').val('-');
 	$('#input_installation_rating').stars({
 		stars: 5,
 		value: 0,
@@ -144,6 +146,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#quality_post_rating').val('-');
 	$('#input_post_rating').stars({
 		stars: 5,
 		value: 0,
@@ -160,6 +163,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#delivery_goods_rating').val('-');
 	$('#input_d_goods_rating').stars({
 		stars: 5,
 		value: 0,
@@ -168,6 +172,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#delivery_services_rating').val('-');
 	$('#input_d_services_rating').stars({
 		stars: 5,
 		value: 0,
@@ -176,6 +181,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#delivery_specification_rating').val('-');
 	$('#input_specification_rating').stars({
 		stars: 5,
 		value: 0,
@@ -184,6 +190,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#improvement_competitive_rating').val('-');
 	$('#input_competitive_rating').stars({
 		stars: 5,
 		value: 0,
@@ -192,6 +199,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#improvement_expectations_rating').val('-');
 	$('#input_expectations_rating').stars({
 		stars: 5,
 		value: 0,
@@ -200,6 +208,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#improvement_innovation_rating').val('-');
 	$('#input_innovation_rating').stars({
 		stars: 5,
 		value: 0,
@@ -208,6 +217,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#feedback_customer_rating').val('-');
 	$('#input_customer_rating').stars({
 		stars: 5,
 		value: 0,
@@ -216,6 +226,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#feedback__expectations_rating').val('-');
 	$('#input_prevention_rating').stars({
 		stars: 5,
 		value: 0,
@@ -224,6 +235,7 @@ function instantiateRatings() {
 		}
 	});
 
+	$('#feedback__response_rating').val('-');
 	$('#input_response_rating').stars({
 		stars: 5,
 		value: 0,
@@ -251,6 +263,7 @@ const rating = {
 
 // Hide the audits that doesn't depend on selected category of procurement
 $('#input_category').on('change', function() {
+	// instantiateRatings();
 	let category = $(this)
 		.find(':selected')
 		.val();
@@ -342,22 +355,6 @@ $(document).ready(() => {
 	// dtBtn.setAttributeNode(btnClass);
 
 	$('#pull_reports').submit(function(e) {
-		e.preventDefault();
-		const data = $('#pull_reports').serialize();
-		console.log(data);
-
-		$.ajax({
-			type: 'POST',
-			url: '../backend/api/audits/pullReports.php',
-			data: data,
-
-			success: function(response) {
-				console.log(JSON.parse(response));
-			},
-
-			error: function() {
-				console.log('500 Error');
-			}
-		});
+		$('#report_modal').modal('hide');
 	});
 });

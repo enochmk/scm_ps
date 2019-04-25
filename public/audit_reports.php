@@ -33,7 +33,7 @@ require_once './includes/sidenav.php';?>
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 								</div>
 
-								<form id="pull_reports" method="POST">
+								<form action="../backend/api/audits/pullReports.php" id="pull_reports" method="POST">
 									<!-- Modal body -->
 									<div class="modal-body">
 											<!-- <select name="input_months" id="input_months" class="form-control">
