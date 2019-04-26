@@ -1,5 +1,14 @@
 <?php
 require_once '../backend/core/init.php';
+// Get User ID from session and get user permissions
+$userID = 1;
+$user = new User($userID);
+
+if (!$user->hasPermission('audit_reports')) {
+  require_once './includes/errors/permission_denied.php';
+  exit();
+}
+
 require_once './includes/header.php';
 require_once './includes/sidenav.php';?>
 

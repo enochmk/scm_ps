@@ -21,11 +21,13 @@
             <h6 class="text-overflow m-0">Welcome!</h6>
           </div>
           <div class="dropdown-divider"></div>
+          <?php if ($user->hasPermission('audit_reports')): ?>
           <a href="#!" class="dropdown-item">
             <i class="ni ni-collection"></i>
             <span>Report</span>
           </a>
           <div class="dropdown-divider"></div>
+          <?php endif;?>
           <a href="#!" class="dropdown-item">
             <i class="ni ni-user-run"></i>
             <span>Logout</span>

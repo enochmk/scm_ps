@@ -1,7 +1,18 @@
 <?php
 require_once '../backend/core/init.php';
+
+// Get User ID from session and get user permissions
+$userID = 1;
+$user = new User($userID);
+if (!$user->hasPermission('audit_vendor')) {
+  require_once './includes/errors/permission_denied.php';
+  exit();
+}
+
 require_once './includes/header.php';
-require_once './includes/sidenav.php';?>
+require_once './includes/sidenav.php';
+
+?>
 
 <div class="main-content">
 	<!-- Top navbar -->
@@ -53,12 +64,16 @@ require_once './includes/sidenav.php';?>
 												<label class="form-control-label" for="input-vendor">
 													Vendor
 												</label>
-												<?php $vendors = Utils::get('param_vendors');?>
+
+												<?php $audit = new Audit();?>
+												<!--  -->
+												<?php $vendors = $audit->getVendors($userID);?>
 												<select name="input_vendor" id="input_vendor" class="form-control" required>
 													<?php foreach ($vendors as $vendor): ?>
 														<option value="<?php echo $vendor->id ?>"> <?php echo $vendor->vendor_name; ?></option>
 													<?php endforeach;?>
 												</select>
+
 											</div>
 										</div>
 

@@ -57,9 +57,20 @@ $createAudit = array(
 
 // $allaudits = $audit->getAuditById(8);
 
-$allaudits = $audit->getDates();
-echo date_format('april', "m");
+// $allaudits = $audit->getVendors(1);
+// // echo date_format('april', "m");
 
-echo "<pre>";
-var_dump($allaudits);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($allaudits);
+// echo "</pre>";
+
+// echo "<pre>";
+// var_dump($user->hasPermission('admin')->first()->permissions);
+// echo "</pre>";
+
+$user = new User(2);
+if ($user->hasPermission('audit_vendor')) {
+  echo "granted";
+} else {
+  echo "denied";
+}

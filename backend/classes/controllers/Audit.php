@@ -143,7 +143,26 @@ class Audit extends Controller
       return $this->data();
     }
 
-    return null;
+    return array();
 
+  }
+
+  public function getVendors($userID)
+  {
+    $sql = "SELECT
+            param_vendors.id AS id,
+            param_vendors.vendor_name AS vendor_name
+            FROM tbl_vendor_lists
+            INNER JOIN param_vendors
+            ON tbl_vendor_lists.vendor_id = param_vendors.id
+            WHERE
+            user_id = $userID";
+
+    if (!$this->conn()->query($sql)->error()) {
+      $this->setData($this->conn()->results());
+      return $this->data();
+    }
+
+    return array();
   }
 }
