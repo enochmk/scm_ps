@@ -31,8 +31,7 @@ class Audit extends Controller
               prevention_rating,
               tbl_audits.createdBy,
               tbl_audits.username,
-              tbl_audits.createdOn,
-              tbl_audits.date
+              tbl_audits.createdOn
             FROM
               tbl_audits
             INNER JOIN param_vendors

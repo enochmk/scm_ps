@@ -117,7 +117,6 @@ class Audit {
 			success: function(response) {
 				const data = JSON.parse(response);
 				UI.displayAudits(data);
-				return;
 			},
 			error: function() {
 				console.log('500 Error');

@@ -68,9 +68,13 @@ $createAudit = array(
 // var_dump($user->hasPermission('admin')->first()->permissions);
 // echo "</pre>";
 
-$user = new User(2);
-if ($user->hasPermission('audit_vendor')) {
-  echo "granted";
-} else {
-  echo "denied";
-}
+// $user = new User(2);
+// if ($user->hasPermission('audit_vendor')) {
+//   echo "granted";
+// } else {
+//   echo "denied";
+// }
+
+echo "<pre>";
+var_dump($audit->allAudits());
+echo "</pre>";

@@ -1,6 +1,6 @@
 <?php
 // get user id from session
-$user = new User(1);
+// $user = new User(1);
 ?>
 
 <!-- Sidenav -->
