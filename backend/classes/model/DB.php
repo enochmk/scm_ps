@@ -101,7 +101,6 @@ class DB
         $this->setResults(array());
       }
     }
-
     // Returns updated instance object;
     return $this;
   }
@@ -161,7 +160,6 @@ class DB
         if ($x < count($fields)) {
           $values .= ", "; // Append ','
         }
-
         $x++;
       }
 
@@ -180,7 +178,7 @@ class DB
   // generic UPDATE statement
   public function update($table, $id, $fields = array())
   {
-    $set = " ";
+    $set = "";
     $x = 1;
 
     foreach ($fields as $key => $field) {

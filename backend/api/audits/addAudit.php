@@ -10,7 +10,7 @@ if (Input::exists()) {
     "quality_report_rating" => Input::get('quality_report_rating'),
     "quality_installation_rating" => Input::get('quality_installation_rating'),
     "quality_post_rating" => Input::get('quality_post_rating'),
-    "quality_post_rating" => Input::get('quality_life_rating'),
+    "quality_life_rating" => Input::get('quality_life_rating'),
     "delivery_goods_rating" => Input::get('delivery_goods_rating'),
     "delivery_services_rating" => Input::get('delivery_services_rating'),
     "delivery_specification_rating" => Input::get('delivery_specification_rating'),
